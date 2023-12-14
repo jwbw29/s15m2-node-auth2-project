@@ -1,5 +1,8 @@
+// [ ] 2B - Middleware Functions
+
 const { JWT_SECRET } = require("../secrets"); // use this secret!
 
+// [ ] 4. restricted
 const restricted = (req, res, next) => {
   /*
     If the user does not provide a token in the Authorization header:
@@ -18,6 +21,7 @@ const restricted = (req, res, next) => {
   */
 }
 
+// [ ] 5. only(role_name)
 const only = role_name => (req, res, next) => {
   /*
     If the user does not provide a token in the Authorization header with a role_name
@@ -31,7 +35,7 @@ const only = role_name => (req, res, next) => {
   */
 }
 
-
+// [ ] 6. checkUsernameExists
 const checkUsernameExists = (req, res, next) => {
   /*
     If the username in req.body does NOT exist in the database
@@ -42,7 +46,7 @@ const checkUsernameExists = (req, res, next) => {
   */
 }
 
-
+// [ ] 7. validateRoleName
 const validateRoleName = (req, res, next) => {
   /*
     If the role_name in the body is valid, set req.role_name to be the trimmed string and proceed.

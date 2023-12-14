@@ -1,7 +1,11 @@
+// [ ] 2C - Endpoints - Authentication will be implemented using JSON Web Tokens.
+
 const router = require("express").Router();
-const { checkUsernameExists, validateRoleName } = require('./auth-middleware');
+const { checkUsernameExists, validateRoleName } = require("./auth-middleware");
+const jwt = require("jsonwebtoken"); // i think we need this
 const { JWT_SECRET } = require("../secrets"); // use this secret!
 
+// [ ] 8. POST /api/auth/register
 router.post("/register", validateRoleName, (req, res, next) => {
   /**
     [POST] /api/auth/register { "username": "anna", "password": "1234", "role_name": "angel" }
@@ -16,7 +20,7 @@ router.post("/register", validateRoleName, (req, res, next) => {
    */
 });
 
-
+// [ ] 9. POST /api/auth/login
 router.post("/login", checkUsernameExists, (req, res, next) => {
   /**
     [POST] /api/auth/login { "username": "sue", "password": "1234" }
