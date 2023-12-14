@@ -2,7 +2,7 @@
 
 const db = require("../../data/db-config.js");
 
-// [ ] 1. find()
+// [x] 1. find()
 function find() {
   /**
 
@@ -22,6 +22,19 @@ function find() {
       }
     ]
    */
+
+    /*
+    select 
+      user_id,
+      username,
+      role_name
+    from users as u
+    left join roles as r
+      on u.role_id = r.role_id
+    */
+   return db('users as u')
+    .select('user_id', 'username', 'role_name')
+    .leftJoin('roles as r', 'u.role_id', 'r.role_id')
 }
 
 // [ ] 2. findBy(filter)
