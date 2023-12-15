@@ -1,4 +1,4 @@
-// [ ] 2A. Start here // DB Access Functions // check off when all are complete
+// [x] 2A. Start here // DB Access Functions // check off when all are complete
 
 const db = require("../../data/db-config.js");
 
@@ -9,8 +9,13 @@ function find() {
     .leftJoin('roles as r', 'u.role_id', 'r.role_id')
 }
 
-// [ ] 2. findBy(filter)
+// [x] 2. findBy(filter)
 function findBy(filter) {
+  return db('users as u')
+  .select('user_id', 'username', 'password', 'role_name')
+  .leftJoin('roles as r', 'u.role_id', 'r.role_id')
+  .where(filter)
+
   /**
     You will need to join two tables.
     Resolves to an ARRAY with all users that match the filter condition.
