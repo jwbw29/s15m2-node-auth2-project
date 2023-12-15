@@ -63,7 +63,7 @@ const checkUsernameExists = (req, res, next) => {
   */
 };
 
-// [ ] 7. validateRoleName
+// [x] 7. validateRoleName
 const validateRoleName = (req, res, next) => {
   let { role_name } = req.body;
   if (role_name) {

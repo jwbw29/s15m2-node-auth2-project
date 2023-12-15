@@ -108,7 +108,7 @@ Complete the `secrets/index.js` file.
     [ ] [11] responds with the correct user (when choosing a valid role_name not in db) (762 ms)
     [ ] [12] leading and trailing whitespace is trimmed from the role_id (763 ms)
     [ ] [13] leading and trailing whitespace is trimmed from the role_id before validating (764 ms)
-    [ ] [14] responds with proper status and message on role_name over 32 chars after trimming (763 ms)
+    [x] [14] responds with proper status and message on role_name over 32 chars after trimming (763 ms)
     [ ] [15] responds with proper status and message if a client tries to register as an admin (763 ms)
     [ ] [16] responds with proper status on success (763 ms)
 
