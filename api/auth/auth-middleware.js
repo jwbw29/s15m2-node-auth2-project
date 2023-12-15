@@ -1,25 +1,36 @@
 // [ ] 2B - Middleware Functions
 
 const { JWT_SECRET } = require("../secrets"); // use this secret!
+const jwt = require("jsonwebtoken"); // Import the 'jsonwebtoken' module
 const { findBy } = require("../users/users-model"); // Import the 'findBy' function from the 'users-model' module
 
 // [ ] 4. restricted
 const restricted = (req, res, next) => {
-  // const token = req.headers.authorization;
-  // console.log(token);
+  const token = req.headers.authorization;
+  if (!token) {
+    return next({ status: 401, message: "Token required" });
+  }
+  jwt.verify(token, JWT_SECRET, (err, decoded) => {
+    if (err) {
+      return next({ status: 401, message: "Token invalid" });
+    }
+    req.decodedJwt = decoded;
+    next();
+  });
+
   // if (token) {
   //   JWT_SECRET.verify(token, JWT_SECRET, (err, decoded) => {
   //     if (err) {
-  //       next({status: 401, message: "Token invalid"})
+  //       next({ status: 401, message: "Token invalid" });
   //     } else {
   //       req.decodedJwt = decoded;
   //       next();
   //     }
-  //   })
+  //   });
   // } else {
-  //   next({status: 401, message: "Token required"})
+  //   next({ status: 401, message: "Token required" });
   // }
-  next();
+
   /*
     If the user does not provide a token in the Authorization header:
     status 401

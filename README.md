@@ -114,8 +114,8 @@ Complete the `secrets/index.js` file.
 
 ## [GET] /api/users
 
-    [ ] [17] requests without a token are bounced with proper status and message (761 ms)
-    [ ] [18] requests with an invalid token are bounced with proper status and message (762 ms)
+    [x] [17] requests without a token are bounced with proper status and message (761 ms)
+    [x] [18] requests with an invalid token are bounced with proper status and message (762 ms)
     [x] [19] requests with a valid token obtain a list of users (761 ms)
 
 ## [GET] /api/users/:user_id
