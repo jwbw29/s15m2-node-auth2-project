@@ -18,7 +18,7 @@ const restricted = (req, res, next) => {
   // } else {
   //   next({status: 401, message: "Token required"})
   // }
-  next()
+  next();
   /*
     If the user does not provide a token in the Authorization header:
     status 401
@@ -34,10 +34,10 @@ const restricted = (req, res, next) => {
 
     Put the decoded token in the req object, to make life easier for middlewares downstream!
   */
-}
+};
 
 // [ ] 5. only(role_name)
-const only = role_name => (req, res, next) => {
+const only = (role_name) => (req, res, next) => {
   next();
   /*
     If the user does not provide a token in the Authorization header with a role_name
@@ -49,7 +49,7 @@ const only = role_name => (req, res, next) => {
 
     Pull the decoded token from the req object, to avoid verifying it again!
   */
-}
+};
 
 // [ ] 6. checkUsernameExists
 const checkUsernameExists = (req, res, next) => {
@@ -61,11 +61,24 @@ const checkUsernameExists = (req, res, next) => {
       "message": "Invalid credentials"
     }
   */
-}
+};
 
 // [ ] 7. validateRoleName
 const validateRoleName = (req, res, next) => {
-  next();
+  let { role_name } = req.body;
+  if (role_name) {
+    role_name = role_name.trim();
+  } else if (!role_name || role_name === "") {
+    role_name = "student";
+    next();
+  } else if (role_name === "admin") {
+    next({ status: 422, message: "Role name can not be admin" });
+  } else if (role_name.length > 32) {
+    next({ status: 422, message: "Role name can not be longer than 32 chars" });
+  } else {
+    next();
+  }
+
   /*
     If the role_name in the body is valid, set req.role_name to be the trimmed string and proceed.
 
@@ -84,11 +97,11 @@ const validateRoleName = (req, res, next) => {
       "message": "Role name can not be longer than 32 chars"
     }
   */
-}
+};
 
 module.exports = {
   restricted,
   checkUsernameExists,
   validateRoleName,
   only,
-}
+};

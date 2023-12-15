@@ -4,17 +4,17 @@ const db = require("../../data/db-config.js");
 
 // [x] 1. find()
 function find() {
-   return db('users as u')
-    .select('user_id', 'username', 'role_name')
-    .leftJoin('roles as r', 'u.role_id', 'r.role_id')
+  return db("users as u")
+    .select("user_id", "username", "role_name")
+    .leftJoin("roles as r", "u.role_id", "r.role_id");
 }
 
 // [x] 2. findBy(filter)
 function findBy(filter) {
-  return db('users as u')
-  .select('user_id', 'username', 'password', 'role_name')
-  .leftJoin('roles as r', 'u.role_id', 'r.role_id')
-  .where(filter)
+  return db("users as u")
+    .select("user_id", "username", "password", "role_name")
+    .leftJoin("roles as r", "u.role_id", "r.role_id")
+    .where(filter);
 
   /**
     You will need to join two tables.
@@ -33,10 +33,11 @@ function findBy(filter) {
 
 // [x] 3. findById(user_id)
 function findById(user_id) {
-  return db('users as u')
-  .select('user_id', 'username', 'role_name')
-  .leftJoin('roles as r', 'u.role_id', 'r.role_id')
-  .where('user_id', user_id).first()
+  return db("users as u")
+    .select("user_id", "username", "role_name")
+    .leftJoin("roles as r", "u.role_id", "r.role_id")
+    .where("user_id", user_id)
+    .first();
 }
 
 /**

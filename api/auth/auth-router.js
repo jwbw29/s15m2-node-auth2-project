@@ -7,7 +7,7 @@ const { JWT_SECRET } = require("../secrets"); // use this secret!
 
 // [ ] 8. POST /api/auth/register
 router.post("/register", validateRoleName, (req, res, next) => {
-  res.json({ message: 'register connected'})
+  res.json({ message: "register connected" });
 
   /**
     [POST] /api/auth/register { "username": "anna", "password": "1234", "role_name": "angel" }
@@ -24,7 +24,7 @@ router.post("/register", validateRoleName, (req, res, next) => {
 
 // [ ] 9. POST /api/auth/login
 router.post("/login", checkUsernameExists, (req, res, next) => {
-  res.json({ message: 'login connected'})
+  res.json({ message: "login connected" });
   /**
     [POST] /api/auth/login { "username": "sue", "password": "1234" }
 
