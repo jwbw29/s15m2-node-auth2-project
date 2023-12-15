@@ -121,4 +121,4 @@ Complete the `secrets/index.js` file.
 ## [GET] /api/users/:user_id
 
     [x] [20] requests with a token with role_name admin obtain the user details (762 ms)
-    [ ] [21] requests with a token with a role_name that is not admin are bounced with proper status and message (761 ms) -->
+    [x] [21] requests with a token with a role_name that is not admin are bounced with proper status and message (761 ms) -->
