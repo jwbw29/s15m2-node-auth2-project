@@ -92,9 +92,9 @@ Complete the `secrets/index.js` file.
 
 ## [POST] /api/auth/login
 
-    [ ] [1] responds with the correct message on valid credentials (753 ms)
-    [ ] [2] responds with the correct status and message on invalid credentials (758 ms)
-    [ ] [3] responds with a token with correct { subject, username, role_name, exp, iat } (763 ms)
+    [x] [1] responds with the correct message on valid credentials (753 ms)
+    [x] [2] responds with the correct status and message on invalid credentials (758 ms)
+    [x] [3] responds with a token with correct { subject, username, role_name, exp, iat } (763 ms)
 
 ## [POST] /api/auth/register
 
@@ -116,9 +116,9 @@ Complete the `secrets/index.js` file.
 
     [ ] [17] requests without a token are bounced with proper status and message (761 ms)
     [ ] [18] requests with an invalid token are bounced with proper status and message (762 ms)
-    [ ] [19] requests with a valid token obtain a list of users (761 ms)
+    [x] [19] requests with a valid token obtain a list of users (761 ms)
 
 ## [GET] /api/users/:user_id
 
-    [ ] [20] requests with a token with role_name admin obtain the user details (762 ms)
+    [x] [20] requests with a token with role_name admin obtain the user details (762 ms)
     [ ] [21] requests with a token with a role_name that is not admin are bounced with proper status and message (761 ms) -->
