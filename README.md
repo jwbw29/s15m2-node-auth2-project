@@ -98,15 +98,15 @@ Complete the `secrets/index.js` file.
 
 ## [POST] /api/auth/register
 
-    [ ] [4] creates a new user in the database when client does not provide role_name (760 ms)
-    [ ] [5] creates a new user with role_id 3 (the default role) when client does not provide role_name (762 ms)
-    [ ] [6] creates a new user with role_id 2 (existing role instructor) when client provides role_name instructor (762 ms)
-    [ ] [7] creates a new user with a brand new role_id when client provides a role_name that does not exist yet (761 ms)
-    [ ] [8] saves the user with a bcrypted password instead of plain text (761 ms)
+    [x] [4] creates a new user in the database when client does not provide role_name (760 ms)
+    [x] [5] creates a new user with role_id 3 (the default role) when client does not provide role_name (762 ms)
+    [x] [6] creates a new user with role_id 2 (existing role instructor) when client provides role_name instructor (762 ms)
+    [x] [7] creates a new user with a brand new role_id when client provides a role_name that does not exist yet (761 ms)
+    [x] [8] saves the user with a bcrypted password instead of plain text (761 ms)
     [ ] [9] responds with the correct user (when omitting role_name from the request) (768 ms)
-    [ ] [10] responds with the correct user (when choosing an existing role_name) (766 ms)
-    [ ] [11] responds with the correct user (when choosing a valid role_name not in db) (762 ms)
-    [ ] [12] leading and trailing whitespace is trimmed from the role_id (763 ms)
+    [x] [10] responds with the correct user (when choosing an existing role_name) (766 ms)
+    [x] [11] responds with the correct user (when choosing a valid role_name not in db) (762 ms)
+    [x] [12] leading and trailing whitespace is trimmed from the role_id (763 ms)
     [ ] [13] leading and trailing whitespace is trimmed from the role_id before validating (764 ms)
     [x] [14] responds with proper status and message on role_name over 32 chars after trimming (763 ms)
     [ ] [15] responds with proper status and message if a client tries to register as an admin (763 ms)
