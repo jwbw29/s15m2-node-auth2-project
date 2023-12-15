@@ -52,7 +52,7 @@ const only = (role_name) => (req, res, next) => {
   */
 };
 
-// [ ] 6. checkUsernameExists
+// [x] 6. checkUsernameExists
 const checkUsernameExists = async (req, res, next) => {
   try {
     const [user] = await findBy({ username: req.body.username });
