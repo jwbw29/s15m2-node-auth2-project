@@ -4,7 +4,7 @@ const { JWT_SECRET } = require("../secrets"); // use this secret!
 const jwt = require("jsonwebtoken"); // Import the 'jsonwebtoken' module
 const { findBy } = require("../users/users-model"); // Import the 'findBy' function from the 'users-model' module
 
-// [ ] 4. restricted
+// [x] 4. restricted
 const restricted = (req, res, next) => {
   const token = req.headers.authorization;
   if (!token) {
@@ -35,7 +35,7 @@ const restricted = (req, res, next) => {
   */
 };
 
-// [ ] 5. only(role_name)
+// [x] 5. only(role_name)
 const only = (role_name) => (req, res, next) => {
   const decodedRollName = req.decodedJwt.role_name;
   if (role_name === decodedRollName) {
@@ -81,21 +81,18 @@ const checkUsernameExists = async (req, res, next) => {
 
 // [x] 7. validateRoleName
 const validateRoleName = (req, res, next) => {
-  let { role_name } = req.body;
-  if (role_name) {
-    req.role_name = role_name.trim();
-  }
-  if (!role_name || role_name === "") {
+  const role_name = req.body.role_name;
+  if (!role_name || !role_name.trim()) {
     req.role_name = "student";
     next();
-  }
-  if (role_name === "admin") {
+  } else if (role_name.trim() === "admin") {
     next({ status: 422, message: "Role name can not be admin" });
-  }
-  if (role_name.length > 32) {
+  } else if (role_name.trim().length > 32) {
     next({ status: 422, message: "Role name can not be longer than 32 chars" });
+  } else {
+    req.role_name = role_name.trim();
+    next();
   }
-  next();
 
   /*
     If the role_name in the body is valid, set req.role_name to be the trimmed string and proceed.
